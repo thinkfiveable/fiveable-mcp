@@ -1,0 +1,34 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.thinkfiveable/fiveable-ap-students",
+  "title": "Fiveable for AP Students",
+  "description": "AP study content, practice, FRQ feedback, progress, plans, and student tools for AI apps.",
+  "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/thinkfiveable/fiveable-mcp",
+    "source": "github"
+  },
+  "websiteUrl": "https://fiveable.me/mcp",
+  "icons": [
+    {
+      "src": "https://fiveable.me/icon-512.png",
+      "mimeType": "image/png",
+      "sizes": [
+        "512x512"
+      ]
+    },
+    {
+      "src": "https://fiveable.me/icon.svg",
+      "mimeType": "image/svg+xml",
+      "sizes": [
+        "any"
+      ]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://fiveable.me/api/mcp"
+    }
+  ]
+}
