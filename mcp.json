@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "fiveable-ap-students": {
+      "url": "https://fiveable.me/api/mcp"
+    }
+  }
+}

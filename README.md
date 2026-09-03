@@ -12,6 +12,16 @@ https://fiveable.me/api/mcp
 
 There is no package to install and no API key to copy. Public discovery and limited content previews work without a Fiveable account. Personal progress and saved actions use Fiveable OAuth.
 
+### Cursor
+
+This repository includes a Cursor plugin manifest and an `mcp.json` configuration for the hosted Fiveable server. In Cursor, open **Customize → MCPs**, add a remote server, and use:
+
+```text
+https://fiveable.me/api/mcp
+```
+
+Cursor will open Fiveable's OAuth flow when a personalized tool needs account access.
+
 ## What it supports
 
 - AP subjects, units, study guides, key terms, and relevant passages
