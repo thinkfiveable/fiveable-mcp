@@ -22,6 +22,16 @@ https://fiveable.me/api/mcp
 
 Cursor will open Fiveable's OAuth flow when a personalized tool needs account access.
 
+### Gemini CLI
+
+Install this repository as a Gemini CLI extension:
+
+```bash
+gemini extensions install https://github.com/thinkfiveable/fiveable-mcp
+```
+
+Gemini CLI connects to the hosted Fiveable MCP through the extension. Run `/mcp auth fiveable-ap-students` to connect a Fiveable account for personalized tools.
+
 ## What it supports
 
 - AP subjects, units, study guides, key terms, and relevant passages
