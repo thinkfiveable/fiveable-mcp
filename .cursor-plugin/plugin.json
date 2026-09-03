@@ -1,0 +1,20 @@
+{
+  "name": "fiveable-ap-students",
+  "version": "1.0.0",
+  "description": "Study for every AP class with trusted Fiveable content, practice, FRQ feedback, progress, and personalized study plans.",
+  "author": {
+    "name": "Fiveable",
+    "email": "help@fiveable.me"
+  },
+  "homepage": "https://fiveable.me/mcp",
+  "repository": "https://github.com/thinkfiveable/fiveable-mcp",
+  "keywords": [
+    "ap",
+    "education",
+    "frq",
+    "practice",
+    "students",
+    "study"
+  ],
+  "logo": "assets/fiveable-blue.png"
+}
