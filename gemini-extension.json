@@ -1,0 +1,11 @@
+{
+  "name": "fiveable-ap-students",
+  "version": "1.0.0",
+  "description": "Study for every AP class with trusted Fiveable content, practice, FRQ feedback, progress, and personalized study plans.",
+  "mcpServers": {
+    "fiveable-ap-students": {
+      "httpUrl": "https://fiveable.me/api/mcp",
+      "authProviderType": "dynamic_discovery"
+    }
+  }
+}
