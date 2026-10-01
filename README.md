@@ -2,6 +2,10 @@
 
 Use Fiveable's AP study content and student study tools inside MCP-compatible AI apps.
 
+## Teacher connector
+
+Looking for grading and class prep? [Fiveable for AP Teachers](teachers/README.md) is a separate connector with its own endpoint and OAuth consent. The root extension and configuration in this repository remain student-only.
+
 ## Connect
 
 Add this remote Streamable HTTP endpoint to your MCP client:
