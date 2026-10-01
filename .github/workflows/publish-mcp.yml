@@ -2,9 +2,22 @@ name: Publish to MCP Registry
 
 on:
   workflow_dispatch:
+    inputs:
+      connector:
+        description: Connector to publish
+        type: choice
+        default: students
+        options:
+          - students
+          - teachers
   push:
+    branches:
+      - main
+    paths:
+      - teachers/server.json
     tags:
       - "v*"
+      - "teachers-v*"
 
 permissions:
   contents: read
@@ -26,11 +39,27 @@ jobs:
           set -o pipefail
           curl -fsSL "https://github.com/modelcontextprotocol/registry/releases/latest/download/mcp-publisher_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/x86_64/amd64/;s/aarch64/arm64/').tar.gz" | tar xz mcp-publisher
 
+      - name: Select connector metadata
+        env:
+          TEACHER_RELEASE: ${{ (github.event_name == 'push' && github.ref == 'refs/heads/main') || startsWith(github.ref, 'refs/tags/teachers-v') || inputs.connector == 'teachers' }}
+        run: |
+          if [ "$TEACHER_RELEASE" = "true" ]; then
+            echo "SERVER_METADATA=teachers/server.json" >> "$GITHUB_ENV"
+          else
+            echo "SERVER_METADATA=server.json" >> "$GITHUB_ENV"
+          fi
+
       - name: Validate server metadata
-        run: ./mcp-publisher validate
+        run: ./mcp-publisher validate "$SERVER_METADATA"
+
+      - name: Check published version
+        id: version
+        run: python3 .github/check-registry-version.py
 
       - name: Authenticate with GitHub OIDC
+        if: steps.version.outputs.already_published != 'true'
         run: ./mcp-publisher login github-oidc
 
       - name: Publish server metadata
-        run: ./mcp-publisher publish
+        if: steps.version.outputs.already_published != 'true'
+        run: ./mcp-publisher publish "$SERVER_METADATA"
